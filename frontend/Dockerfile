@@ -1,5 +1,10 @@
-FROM node:18
+FROM node:20-alpine
+
 WORKDIR /app
-COPY . .
+
+COPY ticket-app/package*.json ./
 RUN npm install
-CMD ["npm","start"]
+
+COPY ticket-app .
+
+CMD ["npm","run","dev","--","--host"]

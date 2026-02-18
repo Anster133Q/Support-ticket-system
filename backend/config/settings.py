@@ -16,8 +16,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "django_filters",
-    "tickets",
     "corsheaders",
+    "tickets",
 ]
 
 MIDDLEWARE = [
@@ -32,7 +32,24 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "config.urls"
 
-# Use PostgreSQL when explicitly configured (e.g. in docker); otherwise use SQLite for local development
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    },
+]
+
+WSGI_APPLICATION = "config.wsgi.application"
+
 if os.environ.get("USE_POSTGRES") == "1":
     DATABASES = {
         "default": {
@@ -53,10 +70,13 @@ else:
     }
 
 REST_FRAMEWORK = {
-    "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"]
+    "DEFAULT_FILTER_BACKENDS": [
+        "django_filters.rest_framework.DjangoFilterBackend"
+    ]
 }
 
-# Allow frontend dev server to access API during development
 CORS_ALLOW_ALL_ORIGINS = True
 
 STATIC_URL = "static/"
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
