@@ -1,0 +1,77 @@
+# =========================
+# 🔐 ENV FILES
+# =========================
+.env
+.env.*
+*.env
+
+# =========================
+# 🐍 PYTHON / DJANGO
+# =========================
+__pycache__/
+*.py[cod]
+*.sqlite3
+db.sqlite3
+*.log
+*.pot
+
+# Virtual Environments
+venv/
+env/
+backend/venv/
+.venv/
+
+# Django static/media
+staticfiles/
+media/
+
+# =========================
+# 🐳 DOCKER
+# =========================
+*.pid
+docker-data/
+postgres-data/
+
+# =========================
+# ⚛️ NODE / FRONTEND
+# =========================
+node_modules/
+frontend/node_modules/
+ticket-app/node_modules/
+
+dist/
+build/
+.vite/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# 🖥 OS FILES
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# 🧠 IDE / EDITOR
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# 🗂 Coverage / Testing
+# =========================
+coverage/
+htmlcov/
+.pytest_cache/
+
+# =========================
+# 🔒 Secrets
+# =========================
+*.pem
+*.key
+*.crt
